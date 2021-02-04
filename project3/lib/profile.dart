@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:email_launcher/email_launcher.dart';
 import 'Styles.dart';
 
 class Profile extends StatelessWidget {
@@ -16,13 +19,14 @@ class Profile extends StatelessWidget {
         children: <Widget>[
           Text('Patrick Stumbaugh', style: Styles.headline1),
           profilePic(),
-          Text('Mobile Software Developer', style: Styles.headline2),
-          Row(children: <Widget>[
-            Linkify(
-              text: "www.patrickstumbaugh.com",
-              linkStyle: TextStyle(color: Colors.red),
-            )
-          ])
+          profileText("Mobile Software Developer"),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
+            hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
+          ]),
+          hyperlink(
+              "mailto:stumbaugh.patrick@gmail.com?subject=Hello!", "Email Me!"),
+          RaisedButton(onPressed: _launchEmail, child: Text('Launch Email'))
         ],
       ),
     );
@@ -50,5 +54,30 @@ class Profile extends StatelessWidget {
                 height: 150),
           )),
     );
+  }
+
+  Widget hyperlink(String url, String title) {
+    return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: RichText(
+            text: TextSpan(
+                text: title,
+                style: new TextStyle(color: Colors.blue),
+                recognizer: new TapGestureRecognizer()
+                  ..onTap = () {
+                    launch(url);
+                  })));
+  }
+
+  Widget profileText(String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(text, style: Styles.headline2),
+    );
+  }
+
+  void _launchEmail() async {
+    Email email = Email(to: ['stumbaugh.patrick@gmail.com']);
+    await EmailLauncher.launch(email);
   }
 }
