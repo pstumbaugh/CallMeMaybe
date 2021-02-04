@@ -25,7 +25,7 @@ class mainScreen extends StatelessWidget {
           body: TabBarView(
             //what's in the tabs
             children: [
-              profilePic(),
+              profile(),
               Icon(Icons.directions_transit),
               Icon(Icons.directions_bike),
             ],
@@ -33,6 +33,12 @@ class mainScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget profile() {
+    return Scaffold(
+      children[]
+    Text("Patrick Stumbaugh");
   }
 
   //gets picture, aligns picture, adds padding
