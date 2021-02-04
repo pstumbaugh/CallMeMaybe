@@ -2,6 +2,8 @@
 https://pub.dev/packages/email_launcher
 While it will work - on the emulator, there is no email client, so an 
 error is logged saying just that
+
+For SMS: I borrowed from the geeksforgeeks website, using url_launcher
 */
 
 import 'imports.dart';
@@ -24,9 +26,11 @@ class Profile extends StatelessWidget {
             hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
             hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
           ]),
-          hyperlink(
-              "mailto:stumbaugh.patrick@gmail.com?subject=Hello!", "Email Me!"),
-          RaisedButton(onPressed: _launchEmail, child: Text('Launch Email'))
+          RaisedButton(onPressed: _launchEmail, child: Text('Launch Email')),
+          RaisedButton(
+            onPressed: _sendingSMS,
+            child: Text('Here'),
+          ),
         ],
       ),
     );
@@ -79,5 +83,14 @@ class Profile extends StatelessWidget {
   void _launchEmail() async {
     Email email = Email(to: ['stumbaugh.patrick@gmail.com']);
     await EmailLauncher.launch(email);
+  }
+
+  _sendingSMS() async {
+    const url = 'sms:9876543210';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
