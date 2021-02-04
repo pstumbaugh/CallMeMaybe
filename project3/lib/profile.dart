@@ -4,7 +4,20 @@ import 'Styles.dart';
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return profile();
+    return profile(context);
+  }
+
+  Widget profile(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 19.0),
+      child: Column(
+        children: <Widget>[
+          Text('Patrick Stumbuagh', style: Styles.headline1),
+          profilePic(),
+          Text('Mobile Software Developer', style: Styles.headline2),
+        ],
+      ),
+    );
   }
 
   //gets picture, adds padding
@@ -28,24 +41,6 @@ class Profile extends StatelessWidget {
                 width: 150,
                 height: 150),
           )),
-    );
-  }
-
-  Widget profile() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 19.0),
-        child: Container(
-          child: Align(
-              alignment: Alignment(0.0, 0.0), //position
-              child: Column(
-                children: <Widget>[
-                  Text('Patrick Stumbuagh', style: Styles.headline1),
-                  profilePic(),
-                ],
-              )),
-        ),
-      ),
     );
   }
 }
