@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 import 'Styles.dart';
 
 class Profile extends StatelessWidget {
@@ -12,9 +14,15 @@ class Profile extends StatelessWidget {
       padding: const EdgeInsets.only(top: 19.0),
       child: Column(
         children: <Widget>[
-          Text('Patrick Stumbuagh', style: Styles.headline1),
+          Text('Patrick Stumbaugh', style: Styles.headline1),
           profilePic(),
           Text('Mobile Software Developer', style: Styles.headline2),
+          Row(children: <Widget>[
+            Linkify(
+              text: "www.patrickstumbaugh.com",
+              linkStyle: TextStyle(color: Colors.red),
+            )
+          ])
         ],
       ),
     );
