@@ -36,9 +36,12 @@ class mainScreen extends StatelessWidget {
   }
 
   Widget profile() {
-    return Scaffold(
-      children[]
-    Text("Patrick Stumbaugh");
+    return Column(
+      children: <Widget>[
+        Text('Patrick Stumbuagh'),
+        profilePic(),
+      ],
+    );
   }
 
   //gets picture, aligns picture, adds padding
