@@ -1,10 +1,10 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:email_launcher/email_launcher.dart';
-import 'Styles.dart';
+/* For email, I borrowed from the dev email_launcher page:
+https://pub.dev/packages/email_launcher
+While it will work - on the emulator, there is no email client, so an 
+error is logged saying just that
+*/
+
+import 'imports.dart';
 
 class Profile extends StatelessWidget {
   @override

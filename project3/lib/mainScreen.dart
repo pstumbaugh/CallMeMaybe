@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'Styles.dart';
-import 'profile.dart';
+import 'imports.dart';
 
 class mainScreen extends StatelessWidget {
   @override
