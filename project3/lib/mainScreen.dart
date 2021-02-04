@@ -11,27 +11,42 @@ class mainScreen extends StatelessWidget {
         length: 3, //number of tabs
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Call Me Maybe'), //title of app
-            bottom: TabBar(
-              indicatorColor: Colors.yellowAccent, //tab bar indicator color
-              tabs: [
-                //TABS (icons)
-                Tab(icon: Icon(Icons.face)),
-                Tab(icon: Icon(Icons.ballot)),
-                Tab(icon: Icon(Icons.question_answer)),
-              ],
-            ),
+            title: title('Call Me Maybe'),
+            bottom: tabBar(),
           ),
-          body: TabBarView(
-            //what's in the tabs
-            children: [
-              Profile(),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-            ],
-          ),
+          body: tabs(),
         ),
       ),
+    );
+  }
+
+  Widget tabs() {
+    return TabBarView(
+      //what's in the tabs
+      children: [
+        Profile(),
+        Icon(Icons.directions_transit),
+        Icon(Icons.directions_bike),
+      ],
+    );
+  }
+
+  Widget tabBar() {
+    return TabBar(
+      indicatorColor: Colors.yellowAccent, //tab bar indicator color
+      tabs: [
+        //TABS (icons)
+        Tab(icon: Icon(Icons.face)),
+        Tab(icon: Icon(Icons.ballot)),
+        Tab(icon: Icon(Icons.question_answer)),
+      ],
+    );
+  }
+
+  Widget title(String text) {
+    return Text(
+      text,
+      style: TextStyle(color: Colors.yellow),
     );
   }
 }
