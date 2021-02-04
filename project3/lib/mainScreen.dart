@@ -8,14 +8,14 @@ class mainScreen extends StatelessWidget {
         primaryColor: Colors.deepPurple, //main title background color
       ),
       home: DefaultTabController(
-        length: 3,
+        length: 3, //number of tabs
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Call Me Maybe'),
+            title: Text('Call Me Maybe'), //title of app
             bottom: TabBar(
-              //tabs and icons
               indicatorColor: Colors.yellowAccent, //tab bar indicator color
               tabs: [
+                //TABS (icons)
                 Tab(icon: Icon(Icons.face)),
                 Tab(icon: Icon(Icons.ballot)),
                 Tab(icon: Icon(Icons.question_answer)),

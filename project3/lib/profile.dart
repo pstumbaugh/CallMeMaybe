@@ -26,16 +26,8 @@ class Profile extends StatelessWidget {
             hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
             hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
           ]),
-          RaisedButton(
-            splashColor: Colors.purpleAccent,
-            onPressed: _sendingSMS,
-            child: Text('Text Me Maybe?'),
-          ),
-          RaisedButton(
-            splashColor: Colors.purpleAccent,
-            onPressed: _sendingMails,
-            child: Text('Email Me Maybe?'),
-          ),
+          profileButton('Email Me Maybe?', _sendingMails),
+          profileButton('Text Me Maybe?', _sendingSMS),
         ],
       ),
     );
@@ -86,7 +78,15 @@ class Profile extends StatelessWidget {
     );
   }
 
-  _sendingMails() async {
+  Widget profileButton(String text, type) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: RaisedButton(
+          splashColor: Colors.purpleAccent, onPressed: type, child: Text(text)),
+    );
+  }
+
+  void _sendingMails() async {
     const url = 'mailto:stumbaugh.patrick@gmail.com';
     if (await canLaunch(url)) {
       await launch(url);
