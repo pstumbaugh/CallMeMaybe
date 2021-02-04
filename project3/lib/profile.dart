@@ -1,10 +1,10 @@
-/* For email, I borrowed from the dev email_launcher page:
-https://pub.dev/packages/email_launcher
-While it will work - on the emulator, there is no email client, so an 
-error is logged saying just that
-
-For SMS: I borrowed from the geeksforgeeks website, using url_launcher
+/* For email and SMS, I borrowed from the geeksforgeeks website, 
+using url_launcher
+(email launcher tries, but can't open email app, as the emulator does
+not have one installed)
 */
+
+import 'package:flutter/rendering.dart';
 
 import 'imports.dart';
 
@@ -26,10 +26,15 @@ class Profile extends StatelessWidget {
             hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
             hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
           ]),
-          RaisedButton(onPressed: _launchEmail, child: Text('Launch Email')),
           RaisedButton(
+            splashColor: Colors.purpleAccent,
             onPressed: _sendingSMS,
-            child: Text('Here'),
+            child: Text('Text Me Maybe?'),
+          ),
+          RaisedButton(
+            splashColor: Colors.purpleAccent,
+            onPressed: _sendingMails,
+            child: Text('Email Me Maybe?'),
           ),
         ],
       ),
@@ -66,7 +71,8 @@ class Profile extends StatelessWidget {
         child: RichText(
             text: TextSpan(
                 text: title,
-                style: new TextStyle(color: Colors.blue),
+                style: new TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.purple),
                 recognizer: new TapGestureRecognizer()
                   ..onTap = () {
                     launch(url);
@@ -80,13 +86,17 @@ class Profile extends StatelessWidget {
     );
   }
 
-  void _launchEmail() async {
-    Email email = Email(to: ['stumbaugh.patrick@gmail.com']);
-    await EmailLauncher.launch(email);
+  _sendingMails() async {
+    const url = 'mailto:stumbaugh.patrick@gmail.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
-  _sendingSMS() async {
-    const url = 'sms:9876543210';
+  void _sendingSMS() async {
+    const url = 'sms:6508683189';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
