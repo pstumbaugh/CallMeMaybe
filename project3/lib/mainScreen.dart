@@ -38,37 +38,43 @@ class mainScreen extends StatelessWidget {
 
   Widget profile() {
     return Center(
-      child: Container(
-        child: Align(
-            alignment: Alignment(0.0, -0.6), //position
-            child: Column(
-              children: <Widget>[
-                Text('Patrick Stumbuagh', style: Styles.headline1),
-                profilePic(),
-              ],
-            )),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 19.0),
+        child: Container(
+          child: Align(
+              alignment: Alignment.center, //position
+              child: Column(
+                children: <Widget>[
+                  Text('Patrick Stumbuagh', style: Styles.headline1),
+                  profilePic(),
+                ],
+              )),
+        ),
       ),
     );
   }
 
   //gets picture, adds padding
   Widget profilePic() {
-    return Container(
-        decoration: BoxDecoration(
-          color: Colors.grey[700],
-          border: Border.all(
-            //border size and color
-            color: Colors.deepPurple,
-            width: 4,
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[700],
+            border: Border.all(
+              //border size and color
+              color: Colors.deepPurple,
+              width: 4,
+            ),
+            borderRadius: BorderRadius.circular(12), //rounded edges
           ),
-          borderRadius: BorderRadius.circular(12), //rounded edges
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: SizedBox(
-              child: Image.asset('assets/profilePic.jpg'),
-              width: 150,
-              height: 150),
-        ));
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: SizedBox(
+                child: Image.asset('assets/profilePic.jpg'),
+                width: 150,
+                height: 150),
+          )),
+    );
   }
 }
