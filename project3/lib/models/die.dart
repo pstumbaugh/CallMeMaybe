@@ -1,0 +1,15 @@
+import '../imports.dart';
+
+class Die {
+  final Random random = Random();
+  final int numberOfSides;
+  int _currentValue = 1;
+
+  Die({this.numberOfSides = 4});
+
+  int get currentValue => _currentValue;
+
+  void roll() {
+    _currentValue = random.nextInt(numberOfSides) + 1;
+  }
+}

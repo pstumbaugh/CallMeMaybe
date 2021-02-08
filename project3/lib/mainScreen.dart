@@ -26,7 +26,7 @@ class mainScreen extends StatelessWidget {
       children: [
         Profile(),
         Icon(Icons.directions_transit),
-        Icon(Icons.directions_bike),
+        Question(),
       ],
     );
   }

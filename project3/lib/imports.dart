@@ -5,3 +5,6 @@ export 'package:url_launcher/url_launcher.dart';
 export 'package:email_launcher/email_launcher.dart';
 export 'Styles.dart';
 export 'profile.dart';
+export 'question.dart';
+export 'dart:math';
+export './models/die.dart';
