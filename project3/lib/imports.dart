@@ -7,4 +7,7 @@ export 'Styles.dart';
 export 'profile.dart';
 export 'question.dart';
 export 'dart:math';
-export './models/die.dart';
+export './models/answers.dart';
+
+export 'dart:io';
+export 'dart:convert';

@@ -1,0 +1,47 @@
+{
+    "name": "8 Ball Answers",
+    "answers": [
+        {
+            "newAnswer": "It is certain."
+        },
+        {
+            "newAnswer": "Without a doubt."
+        },
+        {
+            "newAnswer": "You may rely on it."
+        },
+        {
+            "newAnswer": "As I see it, yes."
+        },
+        {
+            "newAnswer": "Signs point to yes."
+        },
+        {
+            "newAnswer": "Reply hazy, try again."
+        },
+        {
+            "newAnswer": "Better not tell you now."
+        },
+        {
+            "newAnswer": "Concentrate and ask again."
+        },
+        {
+            "newAnswer": "Don't count on it."
+        },
+        {
+            "newAnswer": "My reply is no."
+        },
+        {
+            "newAnswer": "My sources say no."
+        },
+        {
+            "newAnswer": "Outlook not so good."
+        },
+        {
+            "newAnswer": "Very doubtful."
+        },
+        {
+            "newAnswer": "Yes."
+        }
+    ]
+}
