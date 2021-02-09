@@ -35,8 +35,23 @@ class Resume extends StatelessWidget {
   }
 
 //creates a new job to display
-  Widget newJob(String jobTitle) {
-    return Text(jobTitle);
+  Widget newJob(String jobTitle, String company, String date, String location,
+      String description) {
+    return Container(
+        child: Column(
+      children: [
+        Text(jobTitle, textAlign: TextAlign.left), //title of job
+        Row(
+          //row of company, date and location
+          children: [
+            Text(company, textAlign: TextAlign.left),
+            Text(date, textAlign: TextAlign.center),
+            Text(location, textAlign: TextAlign.right),
+          ],
+        ),
+        Text(description, textAlign: TextAlign.left),
+      ],
+    ));
   }
 
 //Adds some spacing
