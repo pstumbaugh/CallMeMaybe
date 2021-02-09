@@ -13,17 +13,29 @@ class _QuestionState extends State<Question> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(getNewAnswer(myAnswersList)),
         Padding(
           padding: EdgeInsets.all(20),
-          child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  getNewAnswer(myAnswersList); //get a new answer, update state
-                });
-              },
-              child: Image.asset('assets/profilePic.jpg')),
-        )
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                child: Text("Call Me... Maybe", style: Styles.headline1),
+              ),
+              RaisedButton(
+                  color: Colors.purple,
+                  textColor: Colors.yellow,
+                  splashColor: Colors.purpleAccent,
+                  onPressed: () {
+                    setState(() {
+                      getNewAnswer(
+                          myAnswersList); //get a new answer, update state
+                    });
+                  },
+                  child: Text("Ask a question, tap me for answer")),
+            ],
+          ),
+        ),
+        Text(getNewAnswer(myAnswersList), style: Styles.headline2)
       ],
     );
   }
