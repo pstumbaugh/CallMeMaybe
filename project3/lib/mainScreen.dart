@@ -24,7 +24,7 @@ class mainScreen extends StatelessWidget {
       //what's in the tabs
       children: [
         Profile(),
-        Icon(Icons.directions_transit),
+        Resume(),
         Question(),
       ],
     );
