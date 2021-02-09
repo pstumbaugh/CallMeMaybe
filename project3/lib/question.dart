@@ -8,24 +8,29 @@ class Question extends StatefulWidget {
 }
 
 class _QuestionState extends State<Question> {
-  final answer = Answers();
-
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('${answer.currentValue}'),
+        Text(getNewAnswer()),
         Padding(
           padding: EdgeInsets.all(20),
           child: GestureDetector(
               onTap: () {
                 setState(() {
-                  answer.getNewAnswer();
+                  getNewAnswer();
                 });
               },
               child: Image.asset('assets/profilePic.jpg')),
         )
       ],
     );
+  }
+
+//gets a new answer from our answers list.
+  String getNewAnswer() {
+    List<Tag> test = populateAnswers();
+    String newAnswer = randomAnswer(test);
+    return newAnswer;
   }
 }
