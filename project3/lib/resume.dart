@@ -7,26 +7,28 @@ class Resume extends StatelessWidget {
   }
 
   Widget resume(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 19.0),
+    return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text('Patrick Stumbaugh', style: Styles.headline2),
-            InkWell(
-              child: Text("stumbuap@oregonstate.edu"),
-              onTap: _sendingMails,
-            ),
-            InkWell(
-              child: Text("(650) 868-3189"),
-              onTap: _sendingSMS,
-            ),
-            spacing(),
-            newJob("My First Job"),
-          ],
+        padding: const EdgeInsets.only(top: 19.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('Patrick Stumbaugh', style: Styles.headline2),
+              InkWell(
+                child: Text("stumbuap@oregonstate.edu"),
+                onTap: _sendingMails,
+              ),
+              InkWell(
+                child: Text("(650) 868-3189"),
+                onTap: _sendingSMS,
+              ),
+              spacing(),
+              newJob("My First Job"),
+            ],
+          ),
         ),
       ),
     );
