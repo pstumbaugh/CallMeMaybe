@@ -84,9 +84,22 @@ class Resume extends StatelessWidget {
             //row of company, date and location
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Align(alignment: Alignment.topLeft, child: Text(company)),
-              Text(date, textAlign: TextAlign.center),
-              Text(location, textAlign: TextAlign.right),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    company,
+                    style: Styles.headline4,
+                  )),
+              Text(
+                date,
+                textAlign: TextAlign.center,
+                style: Styles.headline4,
+              ),
+              Text(
+                location,
+                textAlign: TextAlign.right,
+                style: Styles.headline4,
+              ),
             ],
           ),
         ),

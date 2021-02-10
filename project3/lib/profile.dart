@@ -87,7 +87,7 @@ class Profile extends StatelessWidget {
   }
 
   void _sendingMails() async {
-    const url = 'mailto:stumbaugh.patrick@gmail.com';
+    const url = 'mailto:stumbaup@oregonstate.edu';
     if (await canLaunch(url)) {
       await launch(url);
     } else {

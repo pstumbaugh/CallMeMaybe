@@ -1,5 +1,4 @@
 import 'package:project3/models/answers.dart';
-
 import 'imports.dart';
 
 class Question extends StatefulWidget {
@@ -24,17 +23,7 @@ class _QuestionState extends State<Question> {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Text("Call Me... Maybe", style: Styles.headline1),
                 ),
-                RaisedButton(
-                    color: Colors.deepPurple,
-                    textColor: Colors.yellow,
-                    splashColor: Colors.purpleAccent,
-                    onPressed: () {
-                      setState(() {
-                        getNewAnswer(
-                            myAnswersList); //get a new answer, update state
-                      });
-                    },
-                    child: Text("Ask a question, tap me for answer")),
+                qAndaButton(myAnswersList),
               ],
             ),
           ),
@@ -53,5 +42,18 @@ class _QuestionState extends State<Question> {
       String newAnswer = randomAnswer(myAnswersList);
       return newAnswer;
     }
+  }
+
+  Widget qAndaButton(List<Answers> myAnswersList) {
+    return RaisedButton(
+        color: Colors.deepPurple,
+        textColor: Colors.yellow,
+        splashColor: Colors.purpleAccent,
+        onPressed: () {
+          setState(() {
+            getNewAnswer(myAnswersList); //get a new answer, update state
+          });
+        },
+        child: Text("Ask a question, tap me for answer"));
   }
 }
