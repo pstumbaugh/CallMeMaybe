@@ -8,6 +8,7 @@ class Question extends StatefulWidget {
 
 class _QuestionState extends State<Question> {
   bool answerCounter = false; //if first answer = false
+  List<Answers> test = myFunction2();
   Widget build(BuildContext context) {
     List<Answers> myAnswersList = populateAnswers(); //populate answers list
     return Padding(
@@ -23,11 +24,11 @@ class _QuestionState extends State<Question> {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Text("Call Me... Maybe", style: Styles.headline1),
                 ),
-                qAndaButton(myAnswersList),
+                qAndaButton(test),
               ],
             ),
           ),
-          Text(getNewAnswer(myAnswersList), style: Styles.headline2)
+          Text(getNewAnswer(test), style: Styles.headline2)
         ],
       ),
     );
