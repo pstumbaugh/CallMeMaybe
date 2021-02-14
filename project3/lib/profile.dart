@@ -15,24 +15,44 @@ class Profile extends StatelessWidget {
   }
 
   Widget profile(BuildContext context) {
-    return SingleChildScrollView(
+    return FractionallySizedBox(
+      widthFactor: 1,
+      heightFactor: 1,
       child: Padding(
-        padding: const EdgeInsets.only(top: 19.0),
+        padding: EdgeInsets.all(padding(context)),
         child: Column(
           children: <Widget>[
-            Text('Patrick Stumbaugh', style: Styles.headline1),
-            profilePic(),
-            profileText("Mobile Software Developer"),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
-              hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
-            ]),
-            profileButton('Email Me Maybe?', _sendingMails),
-            profileButton('Text Me Maybe?', _sendingSMS),
+            Flexible(
+                flex: 1,
+                child: Text('Patrick Stumbaugh', style: Styles.headline1)),
+            Flexible(flex: 3, child: profilePic()),
+            Flexible(flex: 2, child: profileText("Mobile Software Developer")),
+            Flexible(
+              flex: 1,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
+                    hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
+                  ]),
+            ),
+            Flexible(
+                flex: 1,
+                child: profileButton('Email Me Maybe?', _sendingMails)),
+            Flexible(
+                flex: 1, child: profileButton('Text Me Maybe?', _sendingSMS)),
           ],
         ),
       ),
     );
+  }
+
+  double padding(BuildContext context) {
+    if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      return MediaQuery.of(context).size.width * .01;
+    } else {
+      return MediaQuery.of(context).size.width * 0.01;
+    }
   }
 
   //gets picture, adds padding
