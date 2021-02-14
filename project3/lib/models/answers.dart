@@ -30,3 +30,25 @@ List<Answers> populateAnswers(dynamic answers) {
 
   return tagObjs;
 }
+
+//BELOW IS ANOTHER WAY TO IMPORT ANSWERS JSON FILE FROM ABSOLUTE PATH, WITHOUT USING FUTURES
+/*
+List<Answers> myFunction2() {
+  String arrayObjsText = readFileSync();
+  //print(arrayObjsText);
+
+  var tagObjsJson = jsonDecode(arrayObjsText)['tags'] as List;
+  var tagObjs =
+      tagObjsJson.map((tagJson) => Answers.fromJson(tagJson)).toList();
+
+  return tagObjs;
+}
+
+String readFileSync() {
+  String contents = new File(
+          '/Users/pstumbaugh/Documents/Computer Science/CS492 Mobile Dev/Dart-Flutter-CallMeMaybe/project3/assets/answers.json')
+      .readAsStringSync();
+
+  return contents;
+}
+*/
