@@ -1,6 +1,8 @@
 import 'package:project3/models/answers.dart';
 import 'imports.dart';
 
+import 'models/user.dart';
+
 class Question extends StatefulWidget {
   @override
   _QuestionState createState() => _QuestionState();
@@ -8,7 +10,8 @@ class Question extends StatefulWidget {
 
 class _QuestionState extends State<Question> {
   bool answerCounter = false; //if first answer = false
-  List<Answers> test = myFunction2();
+  //var test = testFunction();
+
   Widget build(BuildContext context) {
     List<Answers> myAnswersList = populateAnswers(); //populate answers list
     return Padding(
@@ -24,11 +27,11 @@ class _QuestionState extends State<Question> {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Text("Call Me... Maybe", style: Styles.headline1),
                 ),
-                qAndaButton(test),
+                qAndaButton(myAnswersList),
               ],
             ),
           ),
-          Text(getNewAnswer(test), style: Styles.headline2)
+          Text(getNewAnswer(myAnswersList), style: Styles.headline2)
         ],
       ),
     );

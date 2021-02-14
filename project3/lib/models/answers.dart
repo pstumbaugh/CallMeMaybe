@@ -76,20 +76,21 @@ List<Answers> populateAnswers() {
   return tagObjs;
 }
 
-String myFunction() {
-  String content = new File(
-          '/Users/pstumbaugh/Documents/Computer Science/CS492 Mobile Dev/Dart-Flutter-CallMeMaybe/project3/assets/8BallAnswers.json')
-      .readAsStringSync();
-  print(content);
-  return content;
-}
-
 List<Answers> myFunction2() {
-  String arrayObjsText = myFunction();
+  String arrayObjsText = readFileSync();
+  //print(arrayObjsText);
 
   var tagObjsJson = jsonDecode(arrayObjsText)['tags'] as List;
-  List<Answers> tagObjs =
+  var tagObjs =
       tagObjsJson.map((tagJson) => Answers.fromJson(tagJson)).toList();
 
   return tagObjs;
+}
+
+String readFileSync() {
+  String contents = new File(
+          '/Users/pstumbaugh/Documents/Computer Science/CS492 Mobile Dev/Dart-Flutter-CallMeMaybe/project3/assets/answers.json')
+      .readAsStringSync();
+
+  return contents;
 }
