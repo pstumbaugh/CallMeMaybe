@@ -1,6 +1,10 @@
 import 'imports.dart';
 
 class mainScreen extends StatelessWidget {
+  var answers;
+  //save answers json(which was pased to this class) as a dynamic to be sent later to tabs
+  mainScreen(this.answers);
+
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
@@ -13,19 +17,19 @@ class mainScreen extends StatelessWidget {
             title: title('Call Me Maybe'),
             bottom: tabBar(),
           ),
-          body: tabs(),
+          body: tabs(answers),
         ),
       ),
     );
   }
 
-  Widget tabs() {
+  Widget tabs(dynamic answers) {
     return TabBarView(
       //what's in the tabs
       children: [
         Profile(),
         Resume(),
-        Question(),
+        Question(answers), //send dynamic answers (json file) to Question class
       ],
     );
   }

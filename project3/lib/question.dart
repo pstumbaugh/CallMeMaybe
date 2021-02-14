@@ -1,19 +1,24 @@
-import 'package:project3/models/answers.dart';
 import 'imports.dart';
 
-import 'models/user.dart';
-
 class Question extends StatefulWidget {
+  var answers;
+  Question(this.answers);
+
   @override
-  _QuestionState createState() => _QuestionState();
+  _QuestionState createState() => _QuestionState(answers);
 }
 
 class _QuestionState extends State<Question> {
+  var answers;
+  _QuestionState(this.answers);
+  //save dynamic answers to be used by populateAnswers() function
+
   bool answerCounter = false; //if first answer = false
   //var test = testFunction();
 
   Widget build(BuildContext context) {
-    List<Answers> myAnswersList = populateAnswers(); //populate answers list
+    List<Answers> myAnswersList =
+        populateAnswers(answers); //populate answers from json file as list
     return Padding(
       padding: const EdgeInsets.only(bottom: 100.0),
       child: Column(
@@ -27,10 +32,11 @@ class _QuestionState extends State<Question> {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Text("Call Me... Maybe", style: Styles.headline1),
                 ),
-                qAndaButton(myAnswersList),
+                qAndaButton(myAnswersList), //populates button and answer
               ],
             ),
           ),
+          //calls for a new random answer from our list
           Text(getNewAnswer(myAnswersList), style: Styles.headline2)
         ],
       ),
@@ -41,7 +47,7 @@ class _QuestionState extends State<Question> {
   String getNewAnswer(List<Answers> myAnswersList) {
     if (answerCounter == false) {
       answerCounter = true; //switch counter to true
-      return "Go ahead, hit that button!";
+      return "Go ahead, hit that button!"; //default answer before first button push
     } else {
       String newAnswer = randomAnswer(myAnswersList);
       return newAnswer;

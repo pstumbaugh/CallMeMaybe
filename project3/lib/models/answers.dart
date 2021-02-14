@@ -2,9 +2,9 @@ import '../imports.dart';
 
 class Answers {
   String answer;
-
   Answers(this.answer);
 
+  //gets a answer from json from 'answer' key, returns as string
   factory Answers.fromJson(dynamic json) {
     return Answers(json['answer'] as String);
   }
@@ -23,74 +23,10 @@ String randomAnswer(List<Answers> answerOptions) {
   return answerOptions[randomNumber].answer;
 }
 
-List<Answers> populateAnswers() {
-  const String arrayObjsText = r'''{"tags": [
-        {
-            "answer": "It is certain."
-        },
-        {
-            "answer": "Without a doubt."
-        },
-        {
-            "answer": "You may rely on it."
-        },
-        {
-            "answer": "As I see it, yes."
-        },
-        {
-            "answer": "Signs point to yes."
-        },
-        {
-            "answer": "Reply hazy, try again."
-        },
-        {
-            "answer": "Better not tell you now."
-        },
-        {
-            "answer": "Concentrate and ask again."
-        },
-        {
-            "answer": "Don't count on it."
-        },
-        {
-            "answer": "My reply is no."
-        },
-        {
-            "answer": "My sources say no."
-        },
-        {
-            "answer": "Outlook not so good."
-        },
-        {
-            "answer": "Very doubtful."
-        },
-        {
-            "answer": "Yes."
-        }
-    ]}''';
-
-  var tagObjsJson = jsonDecode(arrayObjsText)['tags'] as List;
+List<Answers> populateAnswers(dynamic answers) {
+  var tagObjsJson = jsonDecode(answers)['tags'] as List;
   List<Answers> tagObjs =
       tagObjsJson.map((tagJson) => Answers.fromJson(tagJson)).toList();
 
   return tagObjs;
-}
-
-List<Answers> myFunction2() {
-  String arrayObjsText = readFileSync();
-  //print(arrayObjsText);
-
-  var tagObjsJson = jsonDecode(arrayObjsText)['tags'] as List;
-  var tagObjs =
-      tagObjsJson.map((tagJson) => Answers.fromJson(tagJson)).toList();
-
-  return tagObjs;
-}
-
-String readFileSync() {
-  String contents = new File(
-          '/Users/pstumbaugh/Documents/Computer Science/CS492 Mobile Dev/Dart-Flutter-CallMeMaybe/project3/assets/answers.json')
-      .readAsStringSync();
-
-  return contents;
 }
