@@ -15,7 +15,8 @@ class mainScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: title('Call Me Maybe'),
-            bottom: tabBar(),
+            bottom: PreferredSize(
+                preferredSize: Size.fromHeight(100.0), child: tabBar()),
           ),
           body: tabs(answers),
         ),
