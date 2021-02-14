@@ -15,20 +15,22 @@ class Profile extends StatelessWidget {
   }
 
   Widget profile(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 19.0),
-      child: Column(
-        children: <Widget>[
-          Text('Patrick Stumbaugh', style: Styles.headline1),
-          profilePic(),
-          profileText("Mobile Software Developer"),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-            hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
-            hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
-          ]),
-          profileButton('Email Me Maybe?', _sendingMails),
-          profileButton('Text Me Maybe?', _sendingSMS),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 19.0),
+        child: Column(
+          children: <Widget>[
+            Text('Patrick Stumbaugh', style: Styles.headline1),
+            profilePic(),
+            profileText("Mobile Software Developer"),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              hyperlink("http://www.github.com/pstumbaugh", "GitHub"),
+              hyperlink("http://www.patrickstumbaugh.com", "Portfolio"),
+            ]),
+            profileButton('Email Me Maybe?', _sendingMails),
+            profileButton('Text Me Maybe?', _sendingSMS),
+          ],
+        ),
       ),
     );
   }

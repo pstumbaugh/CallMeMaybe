@@ -27,7 +27,6 @@ dependencies:
   url_launcher: ^5.4.0
   email_launcher: ^1.0.0
   flutter_sms: ^2.1.1
-  path_provider: ^1.6.27
     
 
 
@@ -57,7 +56,6 @@ flutter:
   assets:
     - assets/answers.json
     - assets/profilePic.jpg
-    - assets/example.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -32,7 +32,7 @@ class _QuestionState extends State<Question> {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Text("Call Me... Maybe", style: Styles.headline1),
                 ),
-                qAndaButton(myAnswersList), //populates button and answer
+                qAndaButton2(myAnswersList), //populates button and answer
               ],
             ),
           ),
@@ -54,6 +54,23 @@ class _QuestionState extends State<Question> {
     }
   }
 
+  Widget qAndaButton2(List<Answers> myAnswersList) {
+    return Container(
+        child: RichText(
+      text: TextSpan(
+        text: 'Ask me a question, click me for an answer',
+        style: Styles.headline3,
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            setState(() {
+              getNewAnswer(myAnswersList); //get a new answer, update state
+            });
+          },
+      ),
+    ));
+  }
+
+  /* Original Q/A, but in butotn form
   Widget qAndaButton(List<Answers> myAnswersList) {
     return RaisedButton(
         color: Colors.deepPurple,
@@ -66,4 +83,6 @@ class _QuestionState extends State<Question> {
         },
         child: Text("Ask a question, tap me for answer"));
   }
+*/
+
 }
